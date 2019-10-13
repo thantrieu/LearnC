@@ -31,6 +31,8 @@ void removeAtMid(char *s) {
 			}
 			i--;
 			len--;
+		} else if(s[i] == '\t') {
+			s[i] = ' ';
 		}
 	}
 }
