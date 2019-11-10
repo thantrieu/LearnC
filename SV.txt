@@ -1,0 +1,7 @@
+1003       nguyen     thi mai              linh       20         n          7.00       8.00       9.00       8.00      
+1004       Qua        Jaxiao               Hollowa    20         nu         6.00       8.00       5.00       6.33      
+1002       le         van                  tam        20         nam        4.00       5.00       6.00       5.00      
+1000       tran       van                  nam        20         nam        1.00       2.00       3.00       2.00      
+1005       tran       van                  hung       20         nam        6.00       9.00       8.00       7.67      
+1006       le         hoai                 ha         20         nu         9.00       9.00       8.00       8.67      
+1007       tran       thi thuong           thuong     20         nu         7.00       7.00       8.00       7.33      

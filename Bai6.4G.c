@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 
+struct SinhVien;
+void hienThiDSSV(struct SinhVien*, int);
 void hienThiTenCot();
 
 struct HoTen {
 	char ho[20];
-	char dem[20];
+	char dem[21];
 	char ten[20];
 };
 
@@ -93,9 +95,7 @@ void timTheoTen(struct SinhVien* ds, int slsv) {
 	char ten[20];
 	printf("Nhap ten: ");
 	scanf("%s", ten);
-	
 	hienThiTenCot();
-	
 	int i, timSV = 0;
 	for(i = 0; i < slsv; i++) {
 		if(strcmp(ten, ds[i].hoVaTen.ten) == 0) {
@@ -109,7 +109,11 @@ void timTheoTen(struct SinhVien* ds, int slsv) {
 }
 
 void ghiFile(struct SinhVien* ds, int slsv) {
-	FILE* fOut = fopen("SV.txt", "a");
+	getchar();
+	char fName[26];
+	printf("Nhap ten file: ");
+	gets(fName);
+	FILE* fOut = fopen(fName, "a");
 	int i;
 	for(i = 0; i < slsv; i++) {
 		struct SinhVien sv = ds[i];
@@ -120,10 +124,43 @@ void ghiFile(struct SinhVien* ds, int slsv) {
 	fclose(fOut);
 }
 
+void docFile(struct SinhVien* ds, int* slsv) {
+	FILE* fOut = fopen("SV.txt", "r");
+	int i = 0;
+	if(fOut) {
+		for(;;) {
+			struct SinhVien sv;
+			fscanf(fOut, "%10d %10s %20[^\n] %10s %10d %10s %10f %10f %10f %10f\n",
+			&sv.ma, sv.hoVaTen.ho, sv.hoVaTen.dem, sv.hoVaTen.ten, &sv.tuoi, sv.gioiTinh,
+			&sv.diem.toan, &sv.diem.van, &sv.diem.anh, &sv.diem.tbc);
+			
+			ds[i++] = sv;
+			if(feof(fOut)) { // thoat chuong trinh
+				break;
+			}
+		}
+	}
+	
+	fclose(fOut);
+	*slsv = i;
+}
+
 void hienThiTenCot() {
+	printf("-----------------------------------------------------"
+	"----------------------------------------------------------------\n");
 	printf("%-10s %-10s %-20s %-10s %-10s %-10s %-10s %-10s %-10s %-10s\n", 
 		"Ma SV", "Ho", "Dem", "Ten", "Tuoi", "Gioi Tinh", 
 		"Diem Toan", "Diem Van", "Diem Anh", "Diem TBC");
+}
+
+void hienThiDSSV(struct SinhVien* ds, int slsv) {
+	hienThiTenCot();
+	int i;
+	for(i = 0; i < slsv; i++) {
+		hienThiTTSV(ds[i]);
+	}
+	printf("-----------------------------------------------------"
+	"----------------------------------------------------------------\n");
 }
 
 int main() {
@@ -131,6 +168,11 @@ int main() {
 	int slsv = 0;
 	int luaChon;
 	
+	docFile(dssv, &slsv);
+	printf("DANH SACH SINH VIEN HIEN THOI:\n");
+	hienThiDSSV(dssv, slsv);
+	int i;
+				
 	do {
 		printf("=============== MENU ===============");
 		printf("\n1. Them Sinh vien vao danh sach.");
@@ -144,7 +186,7 @@ int main() {
 		
 		scanf("%d", &luaChon);
 		struct SinhVien sv;
-		int i;
+		
 		switch(luaChon) {
 			case 0:
 				break;
@@ -155,26 +197,19 @@ int main() {
 				break;
 				
 			case 2:
-				hienThiTenCot();
-				for(i = 0; i < slsv; i++) {
-					hienThiTTSV(dssv[i]);
-				}
+				hienThiDSSV(dssv, slsv);
 				break;
 				
 			case 3:
 				sapXepTheoTen(dssv, slsv);
-				hienThiTenCot();
-				for(i = 0; i < slsv; i++) {
-					hienThiTTSV(dssv[i]);
-				}
+				printf("\nDanh sach sinh vien sau khi sap xep theo ten a-z:\n");
+				hienThiDSSV(dssv, slsv);
 				break;
 				
 			case 4:
 				sapXepTheoDiem(dssv, slsv);
-				hienThiTenCot();
-				for(i = 0; i < slsv; i++) {
-					hienThiTTSV(dssv[i]);
-				}
+				printf("\nDanh sach sinh vien sau khi sap xep theo diem giam dan:\n");
+				hienThiDSSV(dssv, slsv);
 				break;
 				
 			case 5:
