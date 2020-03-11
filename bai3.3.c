@@ -1,14 +1,21 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int main(){
-	unsigned int h;
+int main() {
+	int h;
+	printf("Nhap vao chieu cao h: ");
 	scanf("%d", &h);
-	int i, j;
-	for(i= 0; i < h; i++){
-		for(j = 0; j <= i; j++) {
-			printf(" * ");
+	
+	if(h > 0) {
+		int i, j;
+		for(i = 1; i <= h; i++) {
+			for(j = 1; j <= i; j++) {
+				printf(" * ");
+			}
+			printf("\n");
 		}
-		printf("\n\n");
+	} else {
+		printf("Nhap vao so duong h!");
 	}
+	
 	return 0;
 }

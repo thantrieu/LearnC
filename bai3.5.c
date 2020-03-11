@@ -2,16 +2,15 @@
 #include <math.h>
 
 int main() {
-	int h;
-	printf("nhap h: ");
+	int h, i, j;
+	printf("Nhap so duong h: ")	;
 	scanf("%d", &h);
 	
 	if(h > 0) {
-		int i, j;
 		for(i = 1; i <= h; i++) {
-			for(j = 1; j < 2 * h; j++) {
+			for(j = 1; j < 2*h; j++) {
 				if(abs(h - j) <= (i - 1)) {
-					printf(" * ");
+					printf("%3d", i - abs(h - j));
 				} else {
 					printf("   ");
 				}
@@ -19,7 +18,7 @@ int main() {
 			printf("\n");
 		}
 	} else {
-		printf("Nhap h > 0!");
+		printf("Vui long nhap h > 0.");
 	}
 	
 	return 0;
