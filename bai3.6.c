@@ -1,33 +1,26 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int ucln(int a, int b){
-    while(a != b){
-        if(a > b){
-            a -= b;
-        } else {
-            b -= a;
-        }
-    }
-    return a; // tim dc gia tri ucln
+void drawHeart(int m, int n) {
+	int i, j;
+	for(i = 1; i < 7; i++) {
+		for(j = 1; j <= 7; j++) {
+			if(!((i == 1 && (j == 1 || j == 4 || j == 7))
+			|| (i == 4 && (j == 1 || j == 7))
+			|| (i == 5 && (j <= 2 || j >= 6))
+			|| (i == 6 && (j <= 3 || j >= 5)))) {
+				printf(" * ");
+			} else {
+				printf("   ");
+			}
+		}
+		printf("\n");
+	}
 }
 
-int main(){
-    int a, b;
-    puts("Nhap vao a, b > 0 va a <= b: ");
-    scanf("%d%d", &a, &b);
-
-    if(a > 0 && b > 0){
-        int i, j;
-        for(i = a; i<= b; i++){
-            for(j = i+1; j<= b; j++){
-                if(ucln(i, j) == 1){
-                    printf("%d - %d\n", i, j);
-                }
-            }
-        }
-    } else {
-        printf("Vui long nhap a <= b, a, b > 0");
-    }
-
-    return 0;
+int main() {
+	int m = 6, n = 7;
+	drawHeart(m, n);
+	
+	return 0;
 }
+
