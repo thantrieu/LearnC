@@ -1,19 +1,29 @@
 #include <stdio.h>
 
 int main() {
-	unsigned int n;
-	printf("Nhap vao so duong n: ");
+	int n;
+	printf("Nhap so nguyen duong n: ");
 	scanf("%d", &n);
-	unsigned int root = n, m = 0;
-	while(n > 0) {
-		m = m * 10 + n % 10;
-		n /= 10;
-	}
-	if(m == root) {
-		printf("%d la so thuan nghich", root);
+	if(n > 0) {
+		int m = n; // luu lai gia tri cua n
+		int dao = 0;
+		// 12345
+		// dao: 54321
+		// m: 0
+		// 
+		while(m > 0) {
+			dao = dao * 10 + m % 10;
+			m /= 10;	
+		}
+		if(dao == n) {
+			printf("%d la so thuan nghich.\n", n);
+		} else {
+			printf("%d khong phai so thuan nghich.\n", n);
+		}
 	} else {
-		printf("%d khong phai so thuan nghich", root);
+		printf("Nhap n > 0!");
 	}
 	
 	return 0;
 }
+
