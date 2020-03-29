@@ -39,10 +39,31 @@ void minMax(int *arr, int n, int *min, int *max) {
 	}
 }
 
+int khoiTaoMin(int *arr, int n, int min) {
+	int i;
+	for(i = 0; i < n; i++) {
+		if(arr[i] != min) {
+			return arr[i];
+		}
+	}
+	return min;
+}
+
+int khoiTaoMax(int *arr, int n, int max) {
+	int i;
+	for(i = 0; i < n; i++) {
+		if(arr[i] != max) {
+			return arr[i];
+		}
+	}
+	return max;
+}
+
 void minMax2(int *arr, int n, int *min2, int *max2) {
 	int min, max;
 	minMax(arr, n, &min, &max);
-	(*min2) = (*max2) = arr[0];
+	*min2 = khoiTaoMin(arr, n, min);
+	*max2 = khoiTaoMax(arr, n, max);
 	int i;
 	for(i = 1; i < n; i++) {
 		if((*min2) > arr[i] && arr[i] != min) {
@@ -51,8 +72,9 @@ void minMax2(int *arr, int n, int *min2, int *max2) {
 		if((*max2) < arr[i] && arr[i] != max) {
 			(*max2) = arr[i];
 		}
-	}
-	if(min != (*min2) && max != (*max2)) {
+	}	
+	
+	if(min != (*min2) && max != (*max2) && min2 < max2) {
 		ketQua(*min2, *max2);
 	} else {
 		printf("\nKhong co gia tri thoa man");
