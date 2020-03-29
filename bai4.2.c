@@ -74,7 +74,7 @@ void minMax2(int *arr, int n, int *min2, int *max2) {
 		}
 	}	
 	
-	if(min != (*min2) && max != (*max2) && min2 < max2) {
+	if(min != (*min2) && max != (*max2) && *min2 < *max2) {
 		ketQua(*min2, *max2);
 	} else {
 		printf("\nKhong co gia tri thoa man");
