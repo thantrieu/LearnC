@@ -26,8 +26,8 @@ void tinhToan(int *arr, int n, float *tbc, float *tbl) {
 			demL++;
 		}
 	}
-	*tbc = tongC / (n - demL);
-	*tbl = tongL / demL;
+	*tbc = 1.0f * tongC / (n - demL);
+	*tbl = 1.0f * tongL / demL;
 }
 
 void hienThi(float tbc, float tbl) {
