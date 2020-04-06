@@ -3,7 +3,7 @@
 int main() {
 	unsigned int n;
 	printf("Nhap so tu nhien n: ");
-	scanf("%d", &n);
+	scanf("%u", &n);
 	unsigned int s = 0, s1 = 0, s2 = 0;
 	unsigned int i;
 	
@@ -16,9 +16,9 @@ int main() {
 		}
 	}
 	
-	printf("Tong: S = %d\n", s);
-	printf("Tong chan: S2 = %d\n", s2);
-	printf("Tong le: S1 = %d\n", s1);
+	printf("Tong: S = %u\n", s);
+	printf("Tong chan: S2 = %u\n", s2);
+	printf("Tong le: S1 = %u\n", s1);
 	
 	return 0;
 }

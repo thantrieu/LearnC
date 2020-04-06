@@ -5,12 +5,12 @@ int main() {
 	unsigned int n;
 	unsigned long long sum = 0;
 	printf("Nhap vao so nguyen duong n: ");
-	scanf("%d", &n);
+	scanf("%u", &n);
 	long i;
 	for(i = 7; i <= n; i += 7) {
 		sum += i;
 	}
-	printf("SUM = %lld", sum);
+	printf("SUM = %llu", sum);
 	
 	return 0;
 }

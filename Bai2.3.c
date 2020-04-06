@@ -3,7 +3,7 @@
 int main() {
 	unsigned int n;
 	printf("Nhap so tu nhien n: ");
-	scanf("%d", &n);
+	scanf("%u", &n);
 	unsigned int i;
 	float sum = 0;
 	

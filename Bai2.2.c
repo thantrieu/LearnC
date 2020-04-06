@@ -3,7 +3,7 @@
 int main() {
 	unsigned int n;
 	printf("Nhap so tu nhien n: ");
-	scanf("%d", &n);
+	scanf("%u", &n);
 	unsigned int sum = 0;
 	unsigned int i = 1;
 	/*
@@ -12,7 +12,7 @@ int main() {
 	}
 	*/
 	sum = (n + 1) * n / 2;
-	printf("SUM = %d", sum);
+	printf("SUM = %u", sum);
 	
 	return 0;
 }

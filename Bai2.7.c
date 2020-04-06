@@ -7,14 +7,14 @@ int main() {
 	unsigned int counter = 0;
 	
 	printf("Nhap vao so duong n: ");
-	scanf("%ld", &n);
+	scanf("%lu", &n);
 	for(i = 1; i <= n; i++) {
 		if(n % i == 0) {
-			printf("%ld, ", i);
+			printf("%lu, ", i);
 			counter++;
 		}
 	}
-	printf("\n%ld co tong so %d uoc so.\n", n, counter);
+	printf("\n%lu co tong so %u uoc so.\n", n, counter);
 	
 	return 0;
 }
