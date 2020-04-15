@@ -17,7 +17,9 @@ void lietKeUoc(int n) {
 	for(i = 1; i <= sqrt(n); i++) {
 		if(n % i == 0) {
 			printf("%5d", i);
-			printf("%5d", n / i);
+			if(i != n/i) {
+				printf("%5d", n / i);
+			}
 		}
 	}
 }
@@ -27,7 +29,11 @@ void demUoc(int n) {
 	printf("\nSo uoc so cua n: ");
 	for(i = 1; i <= sqrt(n); i++) {
 		if(n % i == 0) {
-			count += 2;
+			if(i != n/i) {
+				count += 2;
+			} else {
+				count++;
+			}
 		}
 	}
 	printf("%d\n", count);
@@ -54,7 +60,7 @@ void lietKeUocNT(int n) {
 			if(ktraNgTo(i)) {
 				printf("%5d", i);
 			}
-			if(ktraNgTo(n / i)) {
+			if(ktraNgTo(n / i) && i != (n/i)) {
 				printf("%5d", n / i);
 			}
 		}
