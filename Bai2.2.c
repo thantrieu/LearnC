@@ -6,13 +6,16 @@ int main() {
 	scanf("%u", &n);
 	unsigned int sum = 0;
 	unsigned int i = 1;
-	/*
+	
 	for(; i <= n; i++) {
 		sum += i;
 	}
-	*/
+	
+	printf("Cach 1: SUM = %u\n", sum);
+	
+	sum = 0; // reset lai gia tri sum
 	sum = (n + 1) * n / 2;
-	printf("SUM = %u", sum);
+	printf("Cach 2: SUM = %u\n", sum);
 	
 	return 0;
 }

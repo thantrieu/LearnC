@@ -5,13 +5,13 @@ int main() {
 	printf("Nhap so tu nhien n: ");
 	scanf("%u", &n);
 	unsigned int i;
-	float sum = 0;
-	
-	for(i = 1; i  <= n; i++) {
-		sum += 1.0f / i;
+	double sum = 0;
+	// dung vong lap for
+	for(i = 1; i <= n; i++) {
+		sum += 1.0 / i;
 	}
-	
-	printf("SUM = %0.5f", sum);
+	// hien ket qua
+	printf("SUM = %0.5lf", sum);
 	
 	return 0;	
 }
